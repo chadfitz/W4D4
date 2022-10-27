@@ -43,6 +43,7 @@ end
 
 describe Tower do
     subject(:tower) {Tower.new}
+    let(:bad_tower)
 
     describe "#initialize" do
         it "has 1 organized arrays and two empty arrays" do
@@ -57,6 +58,14 @@ describe Tower do
 
         it "moves the disk to a provide input" do
             expect(tower.move(0,1)).to eq([[2,3],[1],[]])
+        end
+
+    end
+
+    describe "#won?" do
+        before(:each) {tower.pile = [[],[1,2,3],[]]}
+        it "returns true if array 2 or 3 is filled up" do
+            expect(tower.won?).to eq(true)
         end
 
     end

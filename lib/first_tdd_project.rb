@@ -27,7 +27,7 @@ end
 
 
 class Tower
-    attr_reader :pile
+    attr_accessor :pile
 
     def initialize
         @pile = [[1,2,3],[],[]]
@@ -40,6 +40,14 @@ class Tower
         self.pile[end_pos].unshift(shifted)
         self.pile
 
+    end
+
+    def won?
+        if self.pile[1] == [1,2,3] || self.pile[2] == [1,2,3]
+            return true
+        else
+            false
+        end
     end
 end
 
