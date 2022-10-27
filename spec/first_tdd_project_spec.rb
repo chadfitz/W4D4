@@ -41,3 +41,18 @@ describe "#stock_picker" do
 end
 
 
+describe Tower do
+    subject(:tower) {Tower.new}
+
+    describe "#initialize" do
+        it "has 3 empty arrays" do 
+            expect(tower.pile.length).to eq(3)
+        end
+    end
+
+    describe "#move" do
+        it "takes in a number 0-2" do
+            expect{tower.move(3,3)}.to raise_error("invalid_move")
+        end
+    end
+end

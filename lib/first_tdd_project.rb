@@ -27,3 +27,9 @@ end
 
 
 class Tower
+    attr_reader :pile
+
+    def initialize
+        @pile = Array.new(3) {Array.new([])}
+    end
+end
