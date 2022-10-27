@@ -14,4 +14,16 @@ class Array
         end
         arr
     end
+
+    def my_transpose
+        self.transpose
+    end
 end
+
+def stock_picker(arr)
+    [arr.index(arr.min), arr.index(arr.max)]
+end
+
+
+
+class Tower

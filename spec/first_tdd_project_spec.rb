@@ -4,7 +4,7 @@ require "first_tdd_project"
 describe "#my_uniq" do
     context "return unique array" do
         it "return unique array" do
-            expect([1, 2, 1, 3, 3].my_uniq).to eq([1,2,3])     
+            expect([1, 2, 1, 3, 3].my_uniq).to eq([1,2,3])
         end
     end
 end
@@ -14,7 +14,7 @@ describe "#two_sum" do
         expect([-1, 0, 2, -2, 1].two_sum).to eq([[0, 4], [2, 3]])
     end
     # it "sorts smaller index before bigger index" do
-        
+
     # end
 end
 
@@ -33,3 +33,11 @@ describe "#my_transpose" do
         expect(rows.my_transpose).to eq(cols)
     end
 end
+
+describe "#stock_picker" do
+    it "return lowest and highest price" do
+        expect(stock_picker([85, 5, 91, 23, 106, 73])).to eq([1,4])
+    end
+end
+
+
