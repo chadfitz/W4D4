@@ -20,4 +20,10 @@ class Deck
         @cards = Deck.generate_deck
         @discard = []
     end
+
+    def shuffle
+        self.cards.shuffle!
+    end
+
+    
 end

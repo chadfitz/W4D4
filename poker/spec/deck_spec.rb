@@ -23,11 +23,20 @@ describe Deck do
     end
     describe "#initialize" do
         it "creates a deck using ::generate_deck" do
-            expect(Deck.cards).to eq(Deck.generate_deck)
+            expect(deck.cards.length).to eq(52)
+            expect(deck.cards.uniq.length).to eq(52)
         end
 
         it "creates an empty discard pile" do
             expect(deck.discard).to eq([])
         end
     end
+
+    describe "#shuffle" do
+        it "shuffles the card randomly" do
+            expect(deck.shuffle).to eq(deck.cards.shuffle!)
+        end
+
+    end
+
 end
