@@ -1,5 +1,6 @@
 require "rspec"
 require "first_tdd_project"
+require "byebug"
 
 describe "#my_uniq" do
     context "return unique array" do
@@ -43,7 +44,7 @@ end
 
 describe Tower do
     subject(:tower) {Tower.new}
-    let(:bad_tower)
+
 
     describe "#initialize" do
         it "has 1 organized arrays and two empty arrays" do
@@ -52,20 +53,31 @@ describe Tower do
     end
 
     describe "#move" do
+        before(:each) {tower.pile = [[2],[3],[1]]}
+
         it "doesn't put the disk in the same space" do
             expect{tower.move(0, 0)}.to raise_error("invalid_move")
         end
 
         it "moves the disk to a provide input" do
-            expect(tower.move(0,1)).to eq([[2,3],[1],[]])
+            expect(tower.move(0,1)).to eq([[],[2,3],[1]])
+        end
+
+        it "doesn't put larger disk on smaller disk" do
+            expect{tower.move(0,2)}.to raise_error('invalid_move')
         end
 
     end
 
     describe "#won?" do
-        before(:each) {tower.pile = [[],[1,2,3],[]]}
+        #before(:each) {tower.pile = [[],[1,2,3],[]]}
         it "returns true if array 2 or 3 is filled up" do
+            tower.pile = [[],[1,2,3],[]]
             expect(tower.won?).to eq(true)
+        end
+
+        it "returns false ig array 2 or 3 not filled up" do
+            expect(tower.won?).to eq(false)
         end
 
     end
