@@ -45,14 +45,19 @@ describe Tower do
     subject(:tower) {Tower.new}
 
     describe "#initialize" do
-        it "has 3 empty arrays" do 
-            expect(tower.pile.length).to eq(3)
+        it "has 1 organized arrays and two empty arrays" do
+            expect(tower.pile).to eq([[1,2,3],[],[]])
         end
     end
 
     describe "#move" do
-        it "takes in a number 0-2" do
-            expect{tower.move(3,3)}.to raise_error("invalid_move")
+        it "doesn't put the disk in the same space" do
+            expect{tower.move(0, 0)}.to raise_error("invalid_move")
         end
+
+        it "moves the disk to a provide input" do
+            expect(tower.move(0,1)).to eq([[2,3],[1],[]])
+        end
+
     end
 end
