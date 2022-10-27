@@ -36,7 +36,12 @@ class Tower
     def move(start_pos, end_pos)
         raise 'invalid_move' if start_pos == end_pos
 
+
+
         shifted = self.pile[start_pos].shift
+        if !(self.pile[end_pos].empty?)
+            raise "invalid_move" if shifted > self.pile[end_pos][0]
+        end
         self.pile[end_pos].unshift(shifted)
         self.pile
 
@@ -51,6 +56,8 @@ class Tower
     end
 end
 
-# t = Tower.new()
 
-# p t.move(0,1)
+
+t = Tower.new()
+
+p t.move(0,1)
